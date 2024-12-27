@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (level === 'advanced') {
       width = 30;
       height = 16;
-      mines = 99;
+      mines = 75;
     }
     minesLeft = mines;
     resetGame();
