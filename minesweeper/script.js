@@ -99,6 +99,11 @@ document.addEventListener('DOMContentLoaded', () => {
           e.preventDefault();
           handleRightClick(i, j);
         });
+        cellElement.addEventListener('mousedown', (e) => {
+          if (e.button === 1) {
+            handleWheelClick(i, j);
+          }
+        });
       }
     }
   }
@@ -150,6 +155,43 @@ document.addEventListener('DOMContentLoaded', () => {
       updateCellDisplay(x, y);
     }
     minesLeftElement.textContent = String(minesLeft).padStart(3, '0');
+  }
+
+  function handleWheelClick(x, y) {
+    if (isGameOver) return;
+    const cell = board[x][y];
+    if (!cell.isRevealed) return;
+
+    const adjacentFlags = countAdjacentFlags(x, y);
+    if (adjacentFlags === cell.adjacentMines) {
+      for (let i = x - 1; i <= x + 1; i++) {
+        for (let j = y - 1; j <= y + 1; j++) {
+          if (i >= 0 && i < height && j >= 0 && j < width) {
+            if (!board[i][j].isRevealed && !board[i][j].isFlagged) {
+              revealCell(i, j);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  function countAdjacentFlags(x, y) {
+    let count = 0;
+    for (let i = x - 1; i <= x + 1; i++) {
+      for (let j = y - 1; j <= y + 1; j++) {
+        if (
+          i >= 0 &&
+          i < height &&
+          j >= 0 &&
+          j < width &&
+          board[i][j].isFlagged
+        ) {
+          count++;
+        }
+      }
+    }
+    return count;
   }
 
   function revealCell(x, y) {
