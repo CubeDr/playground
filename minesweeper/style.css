@@ -1,0 +1,82 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.game-container {
+  text-align: center;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.time,
+.mines-left {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  padding: 5px;
+}
+
+table {
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background-color: #eee;
+}
+
+td {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #ddd;
+  transition: background-color 0.3s;
+}
+
+td.hidden {
+  background-color: #ddd;
+}
+
+td.revealed {
+  background-color: #eee;
+}
+
+td.flagged {
+  background-color: #ddd;
+  color: #f00;
+}
+
+td.mine {
+  background-color: #f00;
+}
+
+.level {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #367c39;
+}
