@@ -30,6 +30,8 @@ table {
   border-collapse: collapse;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   background-color: #eee;
+  margin: auto;
+  /* 테이블을 중앙에 정렬 */
 }
 
 td {
